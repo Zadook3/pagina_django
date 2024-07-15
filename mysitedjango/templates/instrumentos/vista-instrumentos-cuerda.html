@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Instrumentos de Cuerda</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="title-box">
+                <span style="color: blueviolet;">SYMPHONIX</span>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'carrito' %}">Carrito</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'instrumentos_cuerda' %}">Instrumentos de Cuerda</a></li>
+                            <li><a class="dropdown-item" href="{% url 'instrumentos_percusion' %}">Instrumentos de Percusión</a></li>
+                            <li><a class="dropdown-item" href="{% url 'audio' %}">Audio</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'mantencion' %}">Mantención</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'sobrenosotros' %}">Sobre Nosotros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://lacasadelmusico.cl/wp-content/uploads/2024/04/212820-scaled.webp" class="card-img-top" alt="Bajo - Ibanez SR305EDX">
+                    <div class="card-body">
+                        <h5 class="card-title">Bajo - Ibanez SR305EDX</h5>
+                        <p class="card-text">Una versión ampliada del bajo estándar de 4 cuerdas, con una cuerda adicional afinada típicamente una cuarta por debajo de la cuerda más baja del bajo estándar.</p>
+                        <span class="badge">$510.000</span>
+                        <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Bajo - Ibanez SR305EDX', 510000)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://casamarilla.cl/image/cachewebp/data/imagenesweb/af510-bks-1000x1000.webp" class="card-img-top" alt="Guitarra - Cort AF510-BKS">
+                    <div class="card-body">
+                        <h5 class="card-title">Guitarra - Cort AF510-BKS</h5>
+                        <p class="card-text">Esta guitarra es accesible y adecuada para principiantes y aficionados. El modelo AF510 incluye una tapa de abeto, caoba en la parte posterior y los costados, y un diapasón de merbau.</p>
+                        <span class="badge">$160.000</span>
+                        <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Guitarra - Cort AF510-BKS', 160000)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://maneimport.com/wp-content/uploads/2022/04/mustaine2.jpeg" class="card-img-top" alt="Guitarra - Gibson Dave Mustaine Flying V">
+                    <div class="card-body">
+                        <h5 class="card-title">Guitarra - Gibson Dave Mustaine Flying V</h5>
+                        <p class="card-text">Un ícono del diseño en el mundo de las guitarras eléctricas. Su distintiva forma en V le confiere un aspecto aerodinámico y agresivo.</p>
+                        <span class="badge">$2.900.000</span>
+                        <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Guitarra - Gibson Dave Mustaine Flying V', 2900000)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://casamarilla.cl/image/cachewebp/data/imagenesweb/tus55-mg-1000x1000h.webp" class="card-img-top" alt="Ukelele - Soprano FLIGHT TUS55-MG">
+                    <div class="card-body">
+                        <h5 class="card-title">Ukelele - Soprano FLIGHT TUS55-MG</h5>
+                        <p class="card-text"> El modelo presenta una tapa de amara laminada, un ébano oscuro con vetas atractivas, proporcionando una apariencia tradicional y un sonido profundo.</p>
+                        <span class="badge">$18.000</span>
+                        <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Ukelele - Soprano FLIGHT TUS55-MG', 18000)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://audiomusicacl.vtexassets.com/arquivos/ids/169677/bajo-electroacustico-takamine-gb30ce-color-natural-1097655-1.jpg?v=637801435844130000" class="card-img-top" alt="Bajo - Takamine GB30CE Electroacústico">
+                    <div class="card-body">
+                        <h5 class="card-title">Bajo - Takamine GB30CE Electroacústico</h5>
+                        <p class="card-text">El GB30CE es un bajo electroacústico de construcción sólida, estilo veneciano, el GB30CE entrega un sonido de frecuencias bajas muy claras y resonantes.</p>
+                        <span class="badge">$540.000</span>
+                        <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Bajo - Takamine GB30CE Electroacústico', 540000)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://lacasadelmusico.cl/wp-content/uploads/2023/04/guitarra-electroacustica-epiphone-pro-1-natural.jpg" class="card-img-top" alt="Guitarra - Epiphone PRO-1">
+                    <div class="card-body">
+                        <h5 class="card-title">Guitarra - Epiphone PRO-1</h5>
+                        <p class="card-text">La PRO-1 Classic es una guitarra de cuerdas de nylon hecha para principiantes, presenta un mástil cómodo en forma de C y fácil de tocar con un diapasón de madera de granadillo.</p>
+                        <span class="badge">$230.000</span>
+                        <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Guitarra - Epiphone PRO-1', 230000)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://www.bancmusic.cl/wp-content/uploads/2023/02/U2-13-1000x1000.jpg" class="card-img-top" alt="Guitarra - U2-13C">
+                    <div class="card-body">
+                        <h5 class="card-title">Guitarra - U2-13C</h5>
+                        <p class="card-text">Este modelo de guitarra eléctrica es considerado un instrumento de aprendizaje para principiantes.</p>
+                        <span class="badge">$109.990</span>
+                        <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Guitarra - U2-13C', 109990)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://images.musicstore.cl/images/detailed/160/1120773-1000x1000.jpg" class="card-img-top" alt="Ukelele - Kala KA-15S">
+                    <div class="card-body">
+                        <h5 class="card-title">Ukelele - Kala KA-15S</h5>
+                        <p class="card-text">El Kala KA-15S es una opción excelente para principiantes que buscan un ukelele de calidad a un precio accesible.</p>
+                        <span class="badge">$85.000</span>
+                        <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Ukelele - Kala KA-15S', 85000)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card custom-card-bottom mb-3 mt-3 position-relative">
+            <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Calle_Moneda%2C_Santiago_20231022.jpg" alt="Calle Moneda, Santiago">
+            <div class="custom-card-text">
+                <h5 class="card-title">PARA OBTENER MAS INFORMACIÓN:</h5>
+                <p class="card-text">
+                    Megatienda<br>
+                    Calle Moneda, Santiago Centro, Región Metropolitana.<br>
+                    Correo electrónico: academia@symphonix.com<br>
+                    Teléfono de contacto: +56 9127 41 59
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function agregarAlCarrito(nombre, precio) {
+            var productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            var encontrado = productosEnCarrito.find(producto => producto.nombre === nombre);
+            if (encontrado) {
+                alert('¡Este producto ya está en el carrito!');
+            } else {
+                var producto = {
+                    nombre: nombre,
+                    precio: precio
+                };
+                productosEnCarrito.push(producto);
+                localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
+                alert('¡Producto agregado al carrito!');
+            }
+        }
+    </script>
+
+</body>
+</html>

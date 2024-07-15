@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento - Instrumentos Musicales</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <span style="color: blueviolet;">SYMPHONIX</span>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'carrito' %}">Carrito</a> 
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorías</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'instrumentos_cuerda' %}">Instrumentos de Cuerda</a></li>
+                            <li><a class="dropdown-item" href="{% url 'instrumentos_percusion' %}">Instrumentos de Percusión</a></li>
+                            <li><a class="dropdown-item" href="{% url 'audio' %}">Audio</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'mantencion' %}">Mantencion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'sobrenosotros' %}">Sobre Nosotros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="text-center">
+            <h1 class="text-black">Reserva de Mantenimiento</h1>
+        </div>
+        <div class="text-left mt-4">
+            <h3 class="text-black">Valor Mantenimiento de Instrumento:</h3>
+        </div>
+        <div class="accordion" id="maintenanceAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGuitar" aria-expanded="true" aria-controls="collapseGuitar">
+                        Guitarra
+                    </button>
+                </h2>
+                <div id="collapseGuitar" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        Mantenimiento sin cuerdas incluidas: <strong>$20.000</strong>
+                        <br>Mantenimiento con cuerdas incluidas: <strong>$30.000</strong>
+                        <br>Solo calibración: <strong>$15.000</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBass" aria-expanded="false" aria-controls="collapseBass">
+                        Bajo
+                    </button>
+                </h2>
+                <div id="collapseBass" class="accordion-collapse collapse" data-bs-parent="#maintenanceAccordion">
+                    <div class="accordion-body">
+                        Mantenimiento sin cuerdas incluidas: <strong>$30.000</strong>
+                        <br>Mantenimiento con cuerdas incluidas: <strong>$40.000</strong>
+                        <br>Solo calibración: <strong>$25.000</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="inputNombreApellido" placeholder="Nombre Apellido">
+                <label for="inputNombreApellido">Nombre y Apellido</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="inputTelefono" placeholder="Número de teléfono">
+                <label for="inputTelefono">Número de teléfono</label>
+            </div>
+            <div class="form-floating mb-3">
+                <select class="form-select" id="selectInstrumento" aria-label="Seleccionar instrumento">
+                    <option selected disabled>Instrumento</option>
+                    <option value="guitarra">Guitarra</option>
+                    <option value="bajo">Bajo</option>
+                </select>
+                <label for="selectInstrumento">Instrumento</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="inputCantidadInstrumentos" placeholder="Cantidad de instrumentos" min="1" step="1">
+                <label for="inputCantidadInstrumentos">Cantidad de instrumentos</label>
+            </div>
+            <div class="form-floating mb-3">
+                <select class="form-select" id="selectMantencion" aria-label="Seleccionar mantención">
+                    <option selected disabled>Seleccionar mantención</option>
+                    <option value="mantencion_sin_cuerdas">Mantenimiento sin cuerdas incluidas</option>
+                    <option value="mantencion_con_cuerdas">Mantenimiento con cuerdas incluidas</option>
+                    <option value="solo_calibracion">Solo calibración</option>
+                </select>
+                <label for="selectMantencion">Mantenimiento</label>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="radio" name="tipoMantencion" id="mantencionTienda" checked>
+                <label class="form-check-label text-black" for="mantencionTienda">
+                    Mantenimiento en tienda
+                </label>
+            </div>   
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="radio" name="tipoMantencion" id="retiroDomicilio">
+                <label class="form-check-label text-black" for="retiroDomicilio">
+                    Retiro en domicilio
+                </label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="date" required max="2024-12-31" class="form-control" id="inputFecha" placeholder="Elige la fecha!">
+                <label for="inputFecha">Fecha</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="inputCodigoDescuento" placeholder="Código descuento">
+                <label for="inputCodigoDescuento">Código de descuento</label>
+            </div>
+            <button type="button" id="btnReservar" onclick="reservar()" class="btn btn-primary">Reservar</button>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalMensaje" tabindex="-1" aria-labelledby="modalMensajeLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p id="modalMensajeTexto" style="color: black;"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary w-100" data-bs-dismiss="modal">Listo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card custom-card-bottom mb-3 mt-3 position-relative">
+            <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Calle_Moneda%2C_Santiago_20231022.jpg" alt="Calle Moneda, Santiago">
+            <div class="custom-card-text">
+                <h5 class="card-title">PARA OBTENER MÁS INFORMACIÓN:</h5>
+                <p class="card-text">
+                    Megatienda<br>
+                    Calle Moneda, Santiago Centro, Región Metropolitana.<br>
+                    Correo electrónico: academia@symphonix.com<br>
+                    Teléfono de contacto: +56 9127 41 59
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let nombre = document.getElementById("inputNombreApellido");
+        let telefono = document.getElementById("inputTelefono");
+        let instrumento = document.getElementById("selectInstrumento");
+        let cantidadInstrumentos = document.getElementById("inputCantidadInstrumentos");
+        let tipoMantencion = document.getElementById("selectMantencion");
+        let codigo = document.getElementById("inputCodigoDescuento");
+
+        function validarNombre() {
+            if (!nombre.value) {
+                alert("El campo 'NOMBRE' es obligatorio");
+            }
+        }
+        function validarTelefono() {
+            if (!telefono.value) {
+                alert("El campo 'TELEFONO' es obligatorio");
+            }
+        }
+        function validarCantidad() {
+            if (!cantidadInstrumentos.value) {
+                alert("La 'CANTIDAD DE INSTRUMENTOS' es obligatoria");
+            }
+        }
+
+        nombre.addEventListener("blur", validarNombre);
+        telefono.addEventListener("blur", validarTelefono);
+        cantidadInstrumentos.addEventListener("blur", validarCantidad);
+
+        function mostrarMensaje(mensaje) {
+            const textP = document.querySelector('#modalMensajeTexto');
+            textP.innerText = mensaje;
+
+            const bModal = new bootstrap.Modal('#modalMensaje', {});
+            bModal.show();
+        }
+
+        async function reservar() {
+    const btn = document.getElementById('btnReservar');
+    btn.setAttribute('disabled', true);
+
+    // Validar que los campos obligatorios estén completos
+    if (!nombre.value || !telefono.value || !instrumento.value || !cantidadInstrumentos.value || !tipoMantencion.value) {
+        mostrarMensaje('Por favor, completa todos los campos obligatorios.');
+        btn.removeAttribute('disabled');
+        return; // Detener la función si falta información
+    }
+
+    // Definir los costos por tipo de instrumento y mantención
+    let costoMantencion = 0;
+    switch (tipoMantencion.value) {
+        case 'mantencion_sin_cuerdas':
+            costoMantencion = (instrumento.value === 'guitarra') ? 20000 : 30000;
+            break;
+        case 'mantencion_con_cuerdas':
+            costoMantencion = (instrumento.value === 'guitarra') ? 30000 : 40000;
+            break;
+        case 'solo_calibracion':
+            costoMantencion = (instrumento.value === 'guitarra') ? 15000 : 25000;
+            break;
+    }
+
+    // Calcular el costo total sin descuentos ni cargos adicionales
+    let costoTotal = costoMantencion * parseInt(cantidadInstrumentos.value);
+
+    // Aplicar descuento si se ingresa el código de descuento '1234'
+    if (codigo.value === '1234') {
+        costoTotal *= 0.7; // Aplicar descuento del 30%
+    }
+
+    // Aplicar cargo adicional del 25% si se selecciona retiro en domicilio
+    if (document.getElementById('retiroDomicilio').checked) {
+        costoTotal *= 1.25; // Aplicar cargo adicional del 25%
+    }
+
+    const url = 'https://api.boostr.cl/holidays.json';
+
+    const datePicker = document.getElementById('inputFecha');
+    if (datePicker.reportValidity() && datePicker.value) {
+        try {
+            const solicitud = await fetch(url);
+            const datosFeriados = await solicitud.json();
+            const feriados = datosFeriados.data;
+
+            let esFeriado = undefined;
+            const fechaSeleccionada = datePicker.value;
+
+            for (const fecha of feriados) {
+                if (fecha.date == fechaSeleccionada) {
+                    esFeriado = fecha;
+                    break;
+                }
+            }
+
+            if (esFeriado) {
+                console.log(esFeriado);
+                mostrarMensaje('La fecha ingresada es feriado, no se puede reservar');
+            } else {
+                mostrarMensaje(`Reserva hecha \nTotal a pagar: $${costoTotal.toLocaleString('es-CL')}`);
+            }
+        } catch (error) {
+            mostrarMensaje('Ocurrió un error al recoger los datos.');
+        }
+    } else {
+        mostrarMensaje('Selecciona una fecha');
+    }
+
+    btn.removeAttribute('disabled');
+}
+
+    </script>
+</body>
+
+</html>

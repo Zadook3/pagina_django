@@ -1,0 +1,106 @@
+body {
+    background-color: whitesmoke;
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.navbar {
+    background-color: black !important;
+    color: black;
+    font-size: 20px;
+}
+
+.dropdown-menu {
+    background-color: black !important;
+    color: black;
+    font-size: 20px;
+}
+
+.dropdown-item {
+    color: whitesmoke !important;
+    font-size: 20px;
+}
+
+.navbar-brand,
+.nav-link {
+    color: whitesmoke !important;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: 20px;
+}
+
+.navbar-toggler {
+    color: white !important;
+}
+
+#carouselExample {
+    width: 100%;
+    height: 500px;
+    margin: auto;
+}
+
+#carouselExample img {
+    height: 500px;
+}
+
+.card-title {
+    color: blueviolet;
+    font-size: 18px;
+}
+
+.badge {
+    background-color: transparent !important;
+    color: black !important;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    display: block;
+}
+
+.btn-comprar {
+    background-color: black;
+    color: whitesmoke;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus,
+.dropdown-item:active {
+    background-color: blueviolet;
+    color: #ffffff; 
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-title,
+.card-text {
+    text-align: center;
+}
+
+.custom-card-bottom img {
+    max-height: 300px;
+    object-fit: cover;
+}
+.custom-card-text {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.card {
+    border: 2px solid blueviolet; /* Color y grosor del borde */
+    border-radius: 7px; /* Radio de borde para suavizar las esquinas */
+    /* Otros estilos de tu elección */
+}

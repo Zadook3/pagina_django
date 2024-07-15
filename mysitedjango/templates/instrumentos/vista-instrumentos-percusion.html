@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Instrumentos de Percusión</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="title-box">
+                <span style="color: blueviolet;">SYMPHONIX</span>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'carrito' %}">Carrito</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'instrumentos_cuerda' %}">Instrumentos de Cuerda</a></li>
+                            <li><a class="dropdown-item" href="{% url 'instrumentos_percusion' %}">Instrumentos de Percusión</a></li>
+                            <li><a class="dropdown-item" href="{% url 'audio' %}">Audio</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'mantencion' %}">Mantención</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'sobrenosotros' %}">Sobre Nosotros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="d-flex justify-content-evenly flex-wrap">
+        <div class="card" style="width: 18rem; margin: 5px;">
+            <img src="https://masterselectronicsgt.com/wp-content/uploads/2023/10/DM8.jpg" class="card-img-top" alt="Bateria Eléctrica - NUX DM-8">
+            <div class="card-body">
+                <h5 class="card-title">Bateria Eléctrica - NUX DM-8</h5>
+                <p class="card-text">Compuesta por pads sensibles al tacto que emiten sonidos sampleados de tambores y platillos reales, ofrece una experiencia de batería versátil y silenciosa.</p>
+                <span class="badge">$1.400.000</span>
+                <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Bateria Eléctrica - NUX DM-8', 1400000)">Comprar</button>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; margin: 5px;">
+            <img src="https://dojiw2m9tvv09.cloudfront.net/29454/product/X_a22f1-13446.jpg?45&time=1711673894" class="card-img-top" alt="Bateria Acústica - 22 ALPHA">
+            <div class="card-body">
+                <h5 class="card-title">Bateria Acústica - 22" ALPHA</h5>
+                <p class="card-text">Un conjunto de tambores y platillos, su característica distintiva es el sonido natural y potente que produce.</p>
+                <span class="badge">$350.000</span>
+                <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Bateria Acústica - 22 ALPHA', 350000)">Comprar</button>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; margin: 5px;">
+            <img src="https://audiomusicacl.vtexassets.com/arquivos/ids/188617/1-set-de-congas-11-y-12-tropicana-coc100rbl-bs-213205.jpg?v=638435265455270000" class="card-img-top" alt="Congas - Tropicana 11" y 12" con stand">
+            <div class="card-body">
+                <h5 class="card-title">Congas - Tropicana 11" y 12" con stand</h5>
+                <p class="card-text">Estan construidas de rubberwood, una madera nativa de Brasil, moderadamente dura, con una textura media, de fibras rectas y grano grueso, viene con sus soportes y parches de piel natural.</p>
+                <span class="badge">$330.000</span>
+                <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Bateria Acústica - 22 ALPHA', 350000)">Comprar</button>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; margin: 5px;">
+            <img src="https://audiomusicacl.vtexassets.com/arquivos/ids/189559/1-pad-de-percusion-avatar-pd405-color-negro-1111831.jpg?v=638460288063100000" class="card-img-top" alt="Pad de percusión - Avatar PD405">
+            <div class="card-body">
+                <h5 class="card-title">Pad de percusión - Avatar PD405</h5>
+                <p class="card-text">Todos los accesorios incluidos, con parlantes incorporados, puede funcionar con baterías y incluye 163 sonidos para interactuar.</p>
+                <span class="badge">$90.000</span>
+                <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Bateria Eléctrica - NUX DM-8', 1400000)">Comprar</button>
+            </div>
+        </div>   
+    </div>
+    <div class="d-flex justify-content-evenly flex-wrap">
+            <div class="card" style="width: 18rem; margin: 5px;">
+            <img src="https://audiomusicacl.vtexassets.com/arquivos/ids/191142/213653.jpg?v=638509509151430000" class="card-img-top" alt="Pandero - Meinl TMT2B">
+            <div class="card-body">
+                <h5 class="card-title">Pandero - Meinl TMT2B</h5>
+                <p class="card-text">Los panderos ABS montables de MEINL están diseñadas para resistir a los bateadores más duros. Se montan fácilmente en una varilla o soporte para completar la configuración de un baterista.</p>
+                <span class="badge">$75.000</span>
+                <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Bateria Eléctrica - NUX DM-8', 1400000)">Comprar</button>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; margin: 5px;">
+            <img src="https://audiomusicacl.vtexassets.com/arquivos/ids/170369/pad-de-percusion-electronica-y-sampleo-roland-spdsx-206321-1.jpg?v=637801438241770000" class="card-img-top" alt="Pad de percusión - Roland SPDSX">
+            <div class="card-body">
+                <h5 class="card-title">Pad de percusión - Roland SPDSX</h5>
+                <p class="card-text">El SPD-SX obtiene muestras con captura de audio, interpretación expresiva y tres motores de efectos. Perfecto para baterías acústicas, electrónicas, DJ o teclados. Ideal para tocar cualqueir sitio, es dinámico y fácil de usar.</p>
+                <span class="badge">$855.000</span>
+                <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Bateria Acústica - 22 ALPHA', 350000)">Comprar</button>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; margin: 5px;">
+            <img src="https://casamarilla.cl/image/cachewebp/data/imagenesweb/f822060-1000x1000w.webp" class="card-img-top" alt="Bateria Acústica - 22 ALPHA">
+            <div class="card-body">
+                <h5 class="card-title">Palillos - Basi X de Nogal 5A Par</h5>
+                <p class="card-text">Estos palillos de nogal Americano son de acabado manual, emparejadas por peso, puntas en forma de lágrima, lacadas y hechas en Alemania. Tamaño 5A, largo 410 mm, diámetro 14,2 mm. ¡La calidad que buscas en cada golpe!</p>
+                <span class="badge">$4.000</span>
+                <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Bateria Acústica - 22 ALPHA', 350000)">Comprar</button>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; margin: 5px;">
+            <img src="https://audiomusicacl.vtexassets.com/arquivos/ids/187322/1-bongo-tropicana-6-7-natural-213207.jpg?v=638375577418330000" class="card-img-top" alt="Bateria Acústica - 22 ALPHA">
+            <div class="card-body">
+                <h5 class="card-title">Bongó - Tropicana 6'' 7''</h5>
+                <p class="card-text">Bongó popular para ser usado en ritmos latinos este ejemplar esta elaborado en madera con acabado natural con parches de diametros de  6'' y 7''</p>
+                <span class="badge">$50.000</span>
+                <button type="button" class="btn btn-comprar" onclick="agregarAlCarrito('Bateria Acústica - 22 ALPHA', 350000)">Comprar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card custom-card-bottom mb-3 mt-3 position-relative">
+            <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Calle_Moneda%2C_Santiago_20231022.jpg" alt="Calle Moneda, Santiago">
+            <div class="custom-card-text">
+                <h5 class="card-title">PARA OBTENER MAS INFORMACIÓN:</h5>
+                <p class="card-text">
+                    Megatienda<br>
+                    Calle Moneda, Santiago Centro, Región Metropolitana.<br>
+                    Correo electrónico: academia@symphonix.com<br>
+                    Teléfono de contacto: +56 9127 41 59
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function agregarAlCarrito(nombre, precio) {
+            var productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            var encontrado = productosEnCarrito.find(producto => producto.nombre === nombre);
+            if (encontrado) {
+                alert('¡Este producto ya está en el carrito!');
+            } else {
+                var producto = {
+                    nombre: nombre,
+                    precio: precio
+                };
+                productosEnCarrito.push(producto);
+                localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
+                alert('¡Producto agregado al carrito!');
+            }
+        }
+    </script>
+</body>
+</html>
